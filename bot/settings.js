@@ -3,11 +3,7 @@ const models = require("./models.js");
 
 module.exports = {
   DEFAULT_LANGUAGE: 'en',
-  SUPPORT_MESSAGE: `
-Thank you for using :Bilingual:.
-
-If you need help, here's our dev server:
-https://discord.gg/wNqpW28eES`,
+  SUPPORT_MESSAGE: ``,
   SUPPORT_MESSAGE_VERSION: 3,
   ALLOW_SEND_MESSAGE_USING_WEBHOOK: true,
   WEBHOOK_NAME: "Bilingual",

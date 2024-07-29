@@ -24,15 +24,20 @@ function hash(text){
 async function findGuild(options){
     let op = options || {};
     let result = await db.any(`
-        SELECT id, data          
+        SELECT id, data
         FROM bot_guild
         WHERE hashed_reference = $1 
         LIMIT 1
     `, [ hash(op.reference) ]);
-    if(result.length <= 0){
+
+    if (result.length <= 0) {
         return null;
     }
-    return JSON.parse(result[0].data || "{}");
+
+    const data = result[0].data;
+
+    // Return data directly if it's already an object
+    return data;
 }
 
 async function saveGuild(options){
@@ -55,13 +60,14 @@ async function findChannel(options){
         FROM bot_channel
         WHERE hashed_reference = $1 
         LIMIT 1
-    `, [ 
-        hash(op.reference), 
-    ]);
+    `, [ hash(op.reference) ]);
+
     if(result.length <= 0){
         return null;
     }
-    return JSON.parse(result[0].data || "{}");
+
+    // Assuming `data` is already an object
+    return result[0].data;
 }
 
 async function saveChannel(options){
