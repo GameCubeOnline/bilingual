@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+  postgres:
+    image: postgres:14.2
+    hostname: postgres
+    restart: always
+    ports: 
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=bilingual
+      - POSTGRES_USER=bilingual
+      - POSTGRES_PASSWORD=development_password
+    volumes:
+      - database:/var/lib/postgresql/data
+      - ./gitpod/postgres.migrated.sql.gz:/docker-entrypoint-initdb.d/init.sql.gz
+
+  redis:
+    image: redis:5.0.3-alpine
+    hostname: redis
+    restart: always
+    ports:
+      - 6379:6379
+
+volumes:
+  database: 
+

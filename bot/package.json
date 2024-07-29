@@ -1,0 +1,19 @@
+{
+    "main": "main.js",
+    "scripts": {
+        "start": "node main.js"
+    },
+    "dependencies": {
+        "@iamtraction/google-translate": "^1.1.2",
+        "crypto": "^1.0.1",
+        "discord.js": "^14.6.0",
+        "dotenv": "^16.0.3",
+        "find-config": "^1.0.0",
+        "fs": "^0.0.1-security",
+        "node-csv": "^0.1.2",
+        "path": "^0.12.7",
+        "pg-promise": "^10.12.0",
+        "redis": "^4.3.1",
+        "vary": "^1.1.2"
+    }
+}
